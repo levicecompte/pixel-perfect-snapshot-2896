@@ -4,12 +4,12 @@ import { chargerCatalogue } from "@/lib/catalogue.functions";
 import { GENRES, NOM_SITE, REGIONS, SIECLES, nomComplet } from "@/lib/arpitan";
 
 type Filtres = {
-  q?: string;
-  siecle?: string;
-  region?: string;
-  auteur?: string;
-  oeuvre?: string;
-  genre?: string;
+  q?: string | undefined;
+  siecle?: string | undefined;
+  region?: string | undefined;
+  auteur?: string | undefined;
+  oeuvre?: string | undefined;
+  genre?: string | undefined;
 };
 
 function texte(v: unknown): string | undefined {
