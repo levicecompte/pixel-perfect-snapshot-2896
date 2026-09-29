@@ -10,33 +10,187 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuteursRouteImport } from './routes/auteurs'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BibliothequeRouteImport } from './routes/bibliotheque'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LangueRouteImport } from './routes/langue'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as OeuvresRouteImport } from './routes/oeuvres'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuteurSlugRouteImport } from './routes/auteur.$slug'
+import { Route as OeuvreSlugRouteImport } from './routes/oeuvre.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuteursRoute = AuteursRouteImport.update({
+  id: '/auteurs',
+  path: '/auteurs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BibliothequeRoute = BibliothequeRouteImport.update({
+  id: '/bibliotheque',
+  path: '/bibliotheque',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangueRoute = LangueRouteImport.update({
+  id: '/langue',
+  path: '/langue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OeuvresRoute = OeuvresRouteImport.update({
+  id: '/oeuvres',
+  path: '/oeuvres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuteurSlugRoute = AuteurSlugRouteImport.update({
+  id: '/auteur/$slug',
+  path: '/auteur/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OeuvreSlugRoute = OeuvreSlugRouteImport.update({
+  id: '/oeuvre/$slug',
+  path: '/oeuvre/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auteurs': typeof AuteursRoute
+  '/auth': typeof AuthRoute
+  '/bibliotheque': typeof BibliothequeRoute
+  '/contact': typeof ContactRoute
+  '/langue': typeof LangueRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/oeuvres': typeof OeuvresRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/auteur/$slug': typeof AuteurSlugRoute
+  '/oeuvre/$slug': typeof OeuvreSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auteurs': typeof AuteursRoute
+  '/auth': typeof AuthRoute
+  '/bibliotheque': typeof BibliothequeRoute
+  '/contact': typeof ContactRoute
+  '/langue': typeof LangueRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/oeuvres': typeof OeuvresRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/auteur/$slug': typeof AuteurSlugRoute
+  '/oeuvre/$slug': typeof OeuvreSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auteurs': typeof AuteursRoute
+  '/auth': typeof AuthRoute
+  '/bibliotheque': typeof BibliothequeRoute
+  '/contact': typeof ContactRoute
+  '/langue': typeof LangueRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/oeuvres': typeof OeuvresRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/auteur/$slug': typeof AuteurSlugRoute
+  '/oeuvre/$slug': typeof OeuvreSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auteurs'
+    | '/auth'
+    | '/bibliotheque'
+    | '/contact'
+    | '/langue'
+    | '/mentions-legales'
+    | '/oeuvres'
+    | '/sitemap.xml'
+    | '/admin'
+    | '/auteur/$slug'
+    | '/oeuvre/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auteurs'
+    | '/auth'
+    | '/bibliotheque'
+    | '/contact'
+    | '/langue'
+    | '/mentions-legales'
+    | '/oeuvres'
+    | '/sitemap.xml'
+    | '/admin'
+    | '/auteur/$slug'
+    | '/oeuvre/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auteurs'
+    | '/auth'
+    | '/bibliotheque'
+    | '/contact'
+    | '/langue'
+    | '/mentions-legales'
+    | '/oeuvres'
+    | '/sitemap.xml'
+    | '/_authenticated/admin'
+    | '/auteur/$slug'
+    | '/oeuvre/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuteursRoute: typeof AuteursRoute
+  AuthRoute: typeof AuthRoute
+  BibliothequeRoute: typeof BibliothequeRoute
+  ContactRoute: typeof ContactRoute
+  LangueRoute: typeof LangueRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  OeuvresRoute: typeof OeuvresRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AuteurSlugRoute: typeof AuteurSlugRoute
+  OeuvreSlugRoute: typeof OeuvreSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +202,117 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auteurs': {
+      id: '/auteurs'
+      path: '/auteurs'
+      fullPath: '/auteurs'
+      preLoaderRoute: typeof AuteursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bibliotheque': {
+      id: '/bibliotheque'
+      path: '/bibliotheque'
+      fullPath: '/bibliotheque'
+      preLoaderRoute: typeof BibliothequeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/langue': {
+      id: '/langue'
+      path: '/langue'
+      fullPath: '/langue'
+      preLoaderRoute: typeof LangueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oeuvres': {
+      id: '/oeuvres'
+      path: '/oeuvres'
+      fullPath: '/oeuvres'
+      preLoaderRoute: typeof OeuvresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/auteur/$slug': {
+      id: '/auteur/$slug'
+      path: '/auteur/$slug'
+      fullPath: '/auteur/$slug'
+      preLoaderRoute: typeof AuteurSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oeuvre/$slug': {
+      id: '/oeuvre/$slug'
+      path: '/oeuvre/$slug'
+      fullPath: '/oeuvre/$slug'
+      preLoaderRoute: typeof OeuvreSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuteursRoute: AuteursRoute,
+  AuthRoute: AuthRoute,
+  BibliothequeRoute: BibliothequeRoute,
+  ContactRoute: ContactRoute,
+  LangueRoute: LangueRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  OeuvresRoute: OeuvresRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AuteurSlugRoute: AuteurSlugRoute,
+  OeuvreSlugRoute: OeuvreSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
