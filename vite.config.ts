@@ -13,5 +13,5 @@ export default defineConfig({
     server: { entry: "server" },
   },
   // On Vercel, build for Vercel's runtime instead of the default Cloudflare target.
-  ...(process.env.VERCEL ? { nitro: { preset: "vercel" } } : {}),
+  ...(process.env["VERCEL"] ? { nitro: { preset: "vercel" } } : {}),
 });
